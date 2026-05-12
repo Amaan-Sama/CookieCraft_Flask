@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Display page {% endblock title %}
+{% block body %}
+
+<!--MyCustomers-->
+<div class="container my-4">
+     <h2>Display Your Cookie</h2>
+     <form action="/">
+          <div class="mb-3">
+               <label for="exampleInputEmail1" class="form-label">Biscuit title</label>
+               <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" value="{{cokie_display.title}}" >
+          </div>
+          <div class="mb-3">
+               <label for="exampleInputPassword1" class="form-label">Biscuit Recipe</label>
+               <input type="text" name="desc" class="form-control" id="exampleInputPassword1"value="{{cokie_display.desc}}" >
+          </div>
+
+          <button type="submit" class="btn btn-outline-primary">okay</button>
+     </form>
+</div>
+
+<!--MyCustomers-->
+
+{% endblock body %}

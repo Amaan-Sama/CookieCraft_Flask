@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Update Recipe
+{% endblock title %}
+
+{% block body %}
+
+<style>
+
+.update-container {
+     max-width: 900px;
+     margin: auto;
+     margin-top: 60px;
+     margin-bottom: 60px;
+}
+
+.update-card {
+     background: white;
+     border-radius: 25px;
+     overflow: hidden;
+     box-shadow: 0px 10px 30px rgba(0,0,0,0.12);
+}
+
+.update-banner {
+     background: linear-gradient(135deg, #ff9a3c, #ff6b6b);
+     color: white;
+     padding: 40px;
+     text-align: center;
+}
+
+.update-banner h1 {
+     font-size: 3rem;
+     font-weight: 700;
+}
+
+.update-banner p {
+     font-size: 1.1rem;
+     opacity: 0.95;
+}
+
+.form-section {
+     padding: 40px;
+}
+
+.form-label {
+     font-weight: 600;
+     margin-bottom: 10px;
+}
+
+.form-control {
+     border-radius: 15px;
+     padding: 14px;
+     border: 1px solid #ddd;
+}
+
+.form-control:focus {
+     box-shadow: 0px 0px 10px rgba(255,106,107,0.3);
+     border-color: #ff6b6b;
+}
+
+.recipe-preview {
+     width: 100%;
+     height: 300px;
+     object-fit: cover;
+     border-radius: 20px;
+     margin-bottom: 30px;
+     box-shadow: 0px 5px 20px rgba(0,0,0,0.12);
+}
+
+.update-btn {
+     background: linear-gradient(to right, #ff9a3c, #ff6b6b);
+     border: none;
+     color: white;
+     font-weight: 700;
+     padding: 12px 30px;
+     border-radius: 15px;
+     transition: 0.3s ease;
+}
+
+.update-btn:hover {
+     transform: scale(1.04);
+     opacity: 0.92;
+}
+
+.back-btn {
+     text-decoration: none;
+     margin-left: 15px;
+     font-weight: 600;
+     color: #555;
+}
+
+</style>
+
+
+
+<div class="container update-container">
+
+     <div class="update-card">
+
+          <!-- TOP BANNER -->
+
+          <div class="update-banner">
+
+               <h1>🍪 Update Recipe</h1>
+
+               <p>
+                    Edit your AI-generated biscuit recipe
+               </p>
+
+          </div>
+
+
+
+          <!-- FORM -->
+
+          <div class="form-section">
+
+               <!-- IMAGE PREVIEW -->
+
+               <img src="/{{cokie_update.image}}"
+               class="recipe-preview">
+
+
+
+               <form action="/update/{{cokie_update.sno}}"
+                    method="POST">
+
+                    <div class="mb-4">
+
+                         <label class="form-label">
+                              Biscuit Title
+                         </label>
+
+                         <input type="text"
+                              name="title"
+                              class="form-control"
+                              value="{{cokie_update.title}}">
+
+                    </div>
+
+
+
+                    <div class="mb-4">
+
+                         <label class="form-label">
+                              Recipe Description
+                         </label>
+
+                         <textarea name="desc"
+                              class="form-control"
+                              rows="5">{{cokie_update.desc}}</textarea>
+
+                    </div>
+
+
+
+                    <button type="submit"
+                         class="update-btn">
+
+                         Save Changes
+
+                    </button>
+
+
+
+                    <a href="/"
+                         class="back-btn">
+
+                         ← Back to Home
+
+                    </a>
+
+               </form>
+
+          </div>
+
+     </div>
+
+</div>
+
+{% endblock body %}

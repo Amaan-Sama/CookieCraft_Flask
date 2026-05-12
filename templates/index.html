@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block title %} CookieCraft {% endblock title %}
+
+{% block body %}
+
+<style>
+     body {
+          background: linear-gradient(to bottom right, #fff8f0, #ffe8d6);
+          font-family: 'Segoe UI', sans-serif;
+     }
+
+     .hero-section {
+          background: linear-gradient(135deg, #ff9a3c, #ff6b6b);
+          color: white;
+          padding: 60px;
+          border-radius: 25px;
+          margin-top: 30px;
+          box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+     }
+
+     .hero-title {
+          font-size: 3rem;
+          font-weight: 700;
+     }
+
+     .hero-subtitle {
+          font-size: 1.2rem;
+          opacity: 0.9;
+     }
+
+     .recipe-form {
+          background: white;
+          padding: 30px;
+          border-radius: 20px;
+          margin-top: 30px;
+          box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+     }
+
+     .recipe-form input {
+          border-radius: 12px;
+          padding: 12px;
+     }
+
+     .submit-btn {
+          background: linear-gradient(to right, #ff6b6b, #ff9a3c);
+          border: none;
+          color: white;
+          font-weight: bold;
+          padding: 10px 25px;
+          border-radius: 12px;
+          transition: 0.3s ease;
+     }
+
+     .submit-btn:hover {
+          transform: scale(1.05);
+          opacity: 0.9;
+     }
+
+     .recipes-title {
+          margin-top: 60px;
+          margin-bottom: 25px;
+          font-weight: 700;
+     }
+
+     .recipe-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+          transition: 0.3s ease;
+          height: 100%;
+     }
+
+     .recipe-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+     }
+
+     .recipe-card img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+     }
+
+     .card-content {
+          padding: 20px;
+     }
+
+     .recipe-title {
+          font-size: 1.4rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+     }
+
+     .recipe-desc {
+          color: #555;
+          min-height: 80px;
+     }
+
+     .card-buttons {
+          display: flex;
+          gap: 10px;
+          margin-top: 15px;
+     }
+
+     .update-btn {
+          background: #ffc107;
+          border: none;
+          color: black;
+          padding: 8px 15px;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+     }
+
+     .delete-btn {
+          background: #dc3545;
+          border: none;
+          color: white;
+          padding: 8px 15px;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+     }
+
+     .time-text {
+          color: gray;
+          font-size: 0.9rem;
+          margin-top: 10px;
+     }
+</style>
+
+<div class="container">
+
+     <div class="hero-section text-center">
+          <h1 class="hero-title">🍪 CookieCraft</h1>
+          <p class="hero-subtitle">
+               Create recipes and generate AI food images instantly.
+          </p>
+     </div>
+
+     <div class="recipe-form">
+          <h2 class="mb-4">Add Your Biscuit Recipe</h2>
+
+          <form action="/" method="POST">
+
+               <div class="mb-3">
+                    <label class="form-label">Biscuit Title</label>
+                    <input type="text" name="title" class="form-control">
+               </div>
+
+               <div class="mb-3">
+                    <label class="form-label">Recipe Description</label>
+                    <input type="text" name="desc" class="form-control">
+               </div>
+
+               <button type="submit" class="submit-btn">
+                    Generate Your Biscuit
+               </button>
+
+          </form>
+     </div>
+
+
+     <h2 class="recipes-title">✨ YOUR RECIPES</h2>
+
+     {% if allbiskit|length == 0 %}
+
+     <div class="alert alert-warning">
+          No recipes found. Create your first AI biscuit recipe!
+     </div>
+
+     {% else %}
+
+     <div class="row">
+
+          {% for bddiscuit in allbiskit %}
+
+          <div class="col-md-4 mb-4">
+
+               <div class="recipe-card">
+
+                    <img src="{{bddiscuit.image}}">
+
+                    <div class="card-content">
+
+                         <div class="recipe-title">
+                              {{bddiscuit.title}}
+                         </div>
+
+                         <div class="recipe-desc">
+                              {{bddiscuit.desc}}
+                         </div>
+
+                         <div class="time-text">
+                              {{bddiscuit.date_created}}
+                         </div>
+
+                         <div class="card-buttons">
+
+                              <a href="/update/{{bddiscuit.sno}}" class="update-btn">
+                                   Update
+                              </a>
+
+                              <a href="/delete/{{bddiscuit.sno}}" class="delete-btn">
+                                   Delete
+                              </a>
+
+                         </div>
+
+                    </div>
+
+               </div>
+
+          </div>
+
+          {% endfor %}
+
+     </div>
+
+     {% endif %}
+
+</div>
+
+{% endblock body %}

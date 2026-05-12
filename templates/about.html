@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About CookieCraft
+{% endblock title %}
+
+{% block body %}
+
+<style>
+
+.about-hero {
+     background: linear-gradient(135deg, #ff9a3c, #ff6b6b);
+     color: white;
+     padding: 80px 40px;
+     border-radius: 25px;
+     margin-top: 40px;
+     text-align: center;
+     box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+}
+
+.about-hero h1 {
+     font-size: 4rem;
+     font-weight: 700;
+}
+
+.about-hero p {
+     font-size: 1.3rem;
+     opacity: 0.95;
+}
+
+.feature-card {
+     background: white;
+     border-radius: 20px;
+     padding: 35px;
+     text-align: center;
+     box-shadow: 0px 5px 20px rgba(0,0,0,0.08);
+     transition: 0.3s ease;
+     height: 100%;
+}
+
+.feature-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+     font-size: 4rem;
+     margin-bottom: 20px;
+}
+
+.feature-title {
+     font-size: 1.6rem;
+     font-weight: 700;
+     margin-bottom: 15px;
+}
+
+.about-section {
+     margin-top: 70px;
+}
+
+.about-image {
+     width: 100%;
+     border-radius: 20px;
+     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+.about-text h2 {
+     font-size: 2.5rem;
+     font-weight: 700;
+     margin-bottom: 20px;
+}
+
+.about-text p {
+     font-size: 1.1rem;
+     color: #555;
+     line-height: 1.8;
+}
+
+.tech-section {
+     margin-top: 80px;
+     background: white;
+     padding: 50px;
+     border-radius: 25px;
+     box-shadow: 0px 5px 20px rgba(0,0,0,0.08);
+}
+
+.tech-badge {
+     display: inline-block;
+     background: linear-gradient(to right, #ff9a3c, #ff6b6b);
+     color: white;
+     padding: 12px 20px;
+     border-radius: 15px;
+     margin: 10px;
+     font-weight: 600;
+}
+
+</style>
+
+
+
+<div class="container">
+
+     <!-- HERO -->
+
+     <div class="about-hero">
+
+          <h1>🍪 CookieCraft</h1>
+
+          <p>
+               An recipe platform that transforms
+               creative food ideas into visually stunning recipes.
+          </p>
+
+     </div>
+
+
+
+     <!-- FEATURES -->
+
+     <div class="row about-section g-4">
+
+          <div class="col-md-4">
+
+               <div class="feature-card">
+
+                    <div class="feature-icon">🤖</div>
+
+                    <div class="feature-title">
+                         AI Image Generation
+                    </div>
+
+                    <p>
+                         Generate beautiful AI-powered food images
+                         automatically from recipe descriptions.
+                    </p>
+
+               </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+               <div class="feature-card">
+
+                    <div class="feature-icon">🍰</div>
+
+                    <div class="feature-title">
+                         Smart Recipe Management
+                    </div>
+
+                    <p>
+                         Create, edit, update, and manage recipes
+                         dynamically with an easy-to-use interface.
+                    </p>
+
+               </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+               <div class="feature-card">
+
+                    <div class="feature-icon">⚡</div>
+
+                    <div class="feature-title">
+                         Fast & Interactive
+                    </div>
+
+                    <p>
+                         Built with Flask and modern web technologies
+                         for a smooth and responsive experience.
+                    </p>
+
+               </div>
+
+          </div>
+
+     </div>
+
+
+
+     <!-- ABOUT SECTION -->
+
+     <div class="row about-section align-items-center">
+
+          <div class="col-md-6">
+
+               <img src="{{url_for('static', filename='logo_chat.png')}}"
+                    class="about-image">
+
+          </div>
+
+
+          <div class="col-md-6 about-text">
+
+               <h2>Our Vision</h2>
+
+               <p>
+                    CookieCraft AI was built to combine creativity,
+                    food, and artificial intelligence into one platform.
+                    Users can experiment with recipes and instantly
+                    visualize them using AI-generated imagery.
+               </p>
+
+               <p>
+                    This project demonstrates how generative AI can
+                    enhance user experiences in modern web applications.
+               </p>
+
+          </div>
+
+     </div>
+
+
+
+     <!-- TECH STACK -->
+
+     <div class="tech-section text-center">
+
+          <h2 class="mb-4">
+               🚀 Technologies Used
+          </h2>
+
+          <div class="tech-badge">Flask</div>
+
+          <div class="tech-badge">Python</div>
+
+          <div class="tech-badge">SQLAlchemy</div>
+
+          <div class="tech-badge">Bootstrap</div>
+
+          <div class="tech-badge">Generative AI</div>
+
+          <div class="tech-badge">HTML/CSS</div>
+
+          <div class="tech-badge">SQLite</div>
+
+     </div>
+
+</div>
+
+{% endblock body %}
